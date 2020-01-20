@@ -1,0 +1,12 @@
+<div class="container">
+  <div *ngIf="!login" class="login" >
+          <h1>Login</h1>
+          Wollen Sie Sich einloggen?  
+          <button (click)="onlogin()">Login</button> 
+  </div>
+  <div *ngIf="login" class="login">
+          <h1>Logout</h1>
+          Wollen Sie sich ausloggen?
+          <button (click)="onlogin()">Logout</button> 
+  </div>
+</div>

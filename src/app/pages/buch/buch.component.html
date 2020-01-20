@@ -1,0 +1,53 @@
+<div class="container">
+  <ul *ngIf="login">
+    <li class="list-group-item-action list-group-item">
+      <h3>Neues Buch hinzufügen</h3>   
+    </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="buchService.post.titel" placeholder="Titel" style="width:100%" >
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="buchService.post.autor" placeholder=Autor style="width:100%">
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="month" [(ngModel)]="buchService.post.jahr"  maxlength=4 placeholder=Veröffentlichung style="width:100%">
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="buchService.post.ausgabe" placeholder=Ausgabe style="width:100%">
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="buchService.post.verlag" placeholder=Publisher style="width:100%">
+      </li>
+    <li class="list-group-item-action list-group-item">
+      <button (click)="onAddPublication()" class="btn btn-primary btn-sm">Mitglied hinzufügen</button>
+    </li>
+  </ul>
+
+  <h2 align=center>Buchveröffentlichung</h2>
+    <ul>
+      <li *ngFor="let buch of buecher;let i=index" class="list-group-item-action list-group-item"  >
+        <table >
+        <tr>
+        <td><b>Titel:</b></td><td> <b>{{buch.titel}}</b></td>
+        </tr>
+        <tr>
+        <td><b>Autor/-en:</b></td><td> {{buch.autor}}</td>
+        </tr>
+        <tr>
+        <td><b>Veröffentlichung:</b></td><td> {{buch.jahr}}</td>
+        </tr>
+        <tr>
+        <td><b>Ausgabe:</b> </td> <td>{{buch.ausgabe}}</td>
+        </tr>
+        <tr>
+        <td><b>Verlag:</b></td><td> {{buch.verlag}}</td>
+        </tr>
+        <tr>
+        <button *ngIf="login" class="btn btn-primary btn-sm" (click)="buchService.onEdit(i)">Editieren</button> 
+        <button *ngIf="login" class="btn btn-primary btn-sm" (click)="buchService.onDelete(i)">Löschen</button>
+        </tr>
+        </table>
+    </ul>
+
+
+</div>

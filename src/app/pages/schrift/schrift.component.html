@@ -1,0 +1,64 @@
+
+
+<div class="container">
+    
+ <ul *ngIf="login">
+  <li class="list-group-item-action list-group-item">
+    <h3>Neue Schriftreihe hinzufügen</h3>   
+  </li>
+   <li class="list-group-item-action list-group-item">
+      <input type="text" [(ngModel)]="schriftService.post.forschungsprojekt" placeholder=Forschungsprojekt required minlength="4">
+    </li>
+    <li class="list-group-item-action list-group-item">
+      <input type="text" [(ngModel)]="schriftService.post.autor" placeholder=Autor >
+    </li>
+    <li class="list-group-item-action list-group-item">
+      <input type="text" [(ngModel)]="schriftService.post.publikationsTyp" placeholder="Publikationstyp" >
+    </li>
+    <li class="list-group-item-action list-group-item">
+      <input type="month" [(ngModel)]="schriftService.post.jahr"  maxlength=4 placeholder=Veröffentlichung >
+    </li>
+    <li class="list-group-item-action list-group-item">
+      <input type="text" [(ngModel)]="schriftService.post.volumen" placeholder=Umfang >
+    </li>
+    <li class="list-group-item-action list-group-item">
+      <input type="text" [(ngModel)]="schriftService.post.publisher" placeholder=Publisher >
+    </li>
+    <li class="list-group-item-action list-group-item">
+      <input type="text" [(ngModel)]="schriftService.post.school" placeholder=Lehranstalt >
+    </li>
+  <li class="list-group-item-action list-group-item">
+    <button (click)="onAddPublication()" class="btn btn-primary btn-sm">Mitglied hinzufügen</button>
+  </li>
+ </ul>
+
+ <h2 align=center>Schriftreihe</h2>
+      <ul>
+        <li *ngFor="let schrift of schriftveroeff;let i=index" class="list-group-item-action list-group-item"  >
+          <table >
+          <tr>
+          <td><b>Titel:</b></td><td> <b>{{schrift.titel}}</b></td>
+          </tr>
+          <tr>
+          <td><b>Autor:</b></td><td> {{schrift.autor}}</td>
+          </tr>
+          <tr>
+          <td><b>Veröffentlichung:</b></td><td> {{schrift.jahr}}</td>
+          </tr>
+          <tr>
+          <td><b>Verlag:</b> </td> <td>{{schrift.verlag}}</td>
+          </tr>
+          <tr>
+          <td><b>Link:</b></td><td> {{schrift.link}}</td>
+          </tr>
+          <tr>
+          <button *ngIf="login" class="btn btn-primary btn-sm" (click)="schriftService.onEdit(i)">Editieren</button> 
+          <button *ngIf="login" class="btn btn-primary btn-sm" (click)="schriftService.onDelete(i)">Löschen</button>
+          </tr>
+          </table>
+      </ul>
+
+</div>
+
+
+{{publikationen[1].autor}}

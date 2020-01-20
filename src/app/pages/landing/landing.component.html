@@ -1,0 +1,39 @@
+<div class="container">
+  <h2 align=center>Herzlich Willkommen bei der IHK Flensburg</h2>
+  <div *ngFor="let landing of landings;let i=index" >
+    <img src={{landing.img}}  alignt:center style="width:100%; margin-bottom:20px"  >
+    
+    <p>{{landing.bericht}}</p>
+  </div>
+
+
+  <div>
+    <h4 align=center>
+      Die Präsidentin der IHK Flensburg
+    </h4>
+  </div>
+  <ul>
+    <li class="list-group-item-action list-group-item">
+                  <table width=100%>
+        <tr>
+          <td>Name:</td>
+          <th>{{mitglieder[0].name}}</th>
+          <td rowspan=5><img src={{mitglieder[0].img}} height=120 align=right></td>
+        </tr>
+        <tr>
+          <td>Position:</td>
+          <td>{{mitglieder[0].position}}</td>
+        </tr>
+        <tr>
+          <td>Kontakt:</td>
+          <td>{{mitglieder[0].kontakt}}</td>
+        </tr>
+        <tr>
+          <td>E-Mail:</td>
+          <td>{{mitglieder[0].email}}</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+
+</div>

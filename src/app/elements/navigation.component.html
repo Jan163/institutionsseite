@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Titel" class="bild" src="https://www.ihk-schleswig-holstein.de/blueprint/servlet/resource/crblob/1356986/e33deeb1b7b65da332c0fa671dd9f24f/logo-handelkammer-png-data.jpg">
+        </a>
+          <a class="navbar-brand" routerLink="/">IHK Flensburg</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link" routerLink="/">Home </a>
+          </li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link" routerLink="/neuigkeiten">Neugikeiten </a>
+          </li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link" routerLink="/buch">Buch </a>
+          </li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link" routerLink="/schrift">Schrift </a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Publikationen <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/schriftreihen">Schriftreihen</a></li>
+              <li><a href="/buch">Buchveröffentlichungen</a></li>
+            </ul>
+          </li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link" routerLink="/projekte">Projekte </a>
+          </li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link" routerLink="/institutsmitglieder">Wer sind wir? </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
