@@ -1,0 +1,53 @@
+<div class="container">
+  <ul *ngIf="login">
+    <li class="list-group-item-action list-group-item">
+      <h3>Neues Heft hinzufügen</h3>   
+    </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="heftService.post.titel" placeholder="Titel" style="width:100%" >
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="heftService.post.autor" placeholder=Autor style="width:100%">
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="month" [(ngModel)]="heftService.post.jahr"  maxlength=4 placeholder=Veröffentlichung style="width:100%">
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="heftService.post.ausgabe" placeholder=Ausgabe style="width:100%">
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="heftService.post.link" placeholder=Link style="width:100%">
+      </li>
+    <li class="list-group-item-action list-group-item">
+      <button *ngIf="!heftService.edit" class="btn btn-default" (click)="onAddHeft()">Heft Hinzufügen</button>
+      <button *ngIf="heftService.edit" class="btn btn-default" (click)="onEditHeft()">bearbeiten</button>
+    </li>
+  </ul>
+
+  <h2 align=center>Flensburger Hefte</h2>
+    <ul>
+      <li *ngFor="let heft of hefte;let i=index" class="list-group-item-action list-group-item"  >
+        <table >
+        <tr>
+        <td style="width:20%"><b>Titel:</b></td><td> <b>{{heft.titel}}</b></td>
+        </tr>
+        <tr>
+        <td><b>Autor/-en:</b></td><td> {{heft.autor}}</td>
+        </tr>
+        <tr>
+        <td><b>Veröffentlichung:</b></td><td> {{heft.jahr}}</td>
+        </tr>
+        <tr>
+        <td><b>Ausgabe:</b> </td> <td>{{heft.ausgabe}}</td>
+        </tr>
+        <tr>
+        <td><b>Link:</b></td><td> {{heft.link}}</td>
+        </tr>
+        <tr>
+        <button *ngIf="login" class="btn btn-primary btn-sm" (click)="heftService.onEdit(i)">bearbeiten</button> 
+        <button *ngIf="login" class="btn btn-primary btn-sm" (click)="heftService.onDelete(i)">Löschen</button>
+        </tr>
+        </table>
+    </ul>
+</div>
+
