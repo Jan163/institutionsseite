@@ -19,16 +19,18 @@ export class NeuigkeitenService {
 
   post={
     titel:"",
+    bericht:"",
     img:"",
-    bericht:""
+   
   };
 
   onAddNeuigkeit(){
-    this.neuigkeiten.push(new Neuigkeit(this.post.titel,this.post.img,this.post.bericht))
+    this.neuigkeiten.push(new Neuigkeit(this.post.titel,this.post.bericht,this.post.img))
     this.post={
       titel:"",
+      bericht:"",
       img:"",
-      bericht:""
+      
     }
   }
   
@@ -43,15 +45,15 @@ export class NeuigkeitenService {
   onEdit(index:number){
     this.edit=true;
     this.post.titel=this.neuigkeiten[index].titel;
-    this.post.img=this.neuigkeiten[index].img;
     this.post.bericht=this.neuigkeiten[index].bericht;
+    this.post.img=this.neuigkeiten[index].img;
     this.index=index
   }
   
   onEditNeuigkeit(){
     this.neuigkeiten[this.index].titel=this.post.titel;
-    this.neuigkeiten[this.index].img=this.post.img;
     this.neuigkeiten[this.index].bericht=this.post.bericht;
+    this.neuigkeiten[this.index].img=this.post.img;
     this.edit=false;
     this.post.titel="";
     this.post.img="";

@@ -36,7 +36,7 @@ export class MitgliederService {
     }
    };
    onDelete(index:number){
-     this.mitglieder.splice(index,1)
+     this.mitglieder.splice(index,1);
    }
    output(){
      return this.mitglieder;

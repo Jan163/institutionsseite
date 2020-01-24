@@ -6,7 +6,7 @@ import {NeuigkeitenService} from './neuigkeiten.service'
 
 @Component({
   selector: 'my-neuigkeiten',
-templateUrl: './neuigkeiten.component.html'
+  templateUrl: './neuigkeiten.component.html'
 })
 export class NeuigkeitenComponent  {
   neuigkeiten=[];
