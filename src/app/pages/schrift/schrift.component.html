@@ -6,29 +6,24 @@
   <li class="list-group-item-action list-group-item">
     <h3>Neue Schriftreihe hinzufügen</h3>   
   </li>
-   <li class="list-group-item-action list-group-item">
-      <input type="text" [(ngModel)]="schriftService.post.forschungsprojekt" placeholder=Forschungsprojekt required minlength="4">
+    <li class="list-group-item-action list-group-item">
+      <input type="text" [(ngModel)]="schriftService.post.titel" placeholder=Titel >
     </li>
     <li class="list-group-item-action list-group-item">
       <input type="text" [(ngModel)]="schriftService.post.autor" placeholder=Autor >
     </li>
     <li class="list-group-item-action list-group-item">
-      <input type="text" [(ngModel)]="schriftService.post.publikationsTyp" placeholder="Publikationstyp" >
-    </li>
-    <li class="list-group-item-action list-group-item">
       <input type="month" [(ngModel)]="schriftService.post.jahr"  maxlength=4 placeholder=Veröffentlichung >
     </li>
     <li class="list-group-item-action list-group-item">
-      <input type="text" [(ngModel)]="schriftService.post.volumen" placeholder=Umfang >
+      <input type="text" [(ngModel)]="schriftService.post.verlag" placeholder=Verlag >
     </li>
     <li class="list-group-item-action list-group-item">
-      <input type="text" [(ngModel)]="schriftService.post.publisher" placeholder=Publisher >
-    </li>
-    <li class="list-group-item-action list-group-item">
-      <input type="text" [(ngModel)]="schriftService.post.school" placeholder=Lehranstalt >
+      <input type="text" [(ngModel)]="schriftService.post.link" placeholder="Link zur Schriftreihe" >
     </li>
   <li class="list-group-item-action list-group-item">
-    <button (click)="onAddPublication()" class="btn btn-primary btn-sm">Mitglied hinzufügen</button>
+    <button *ngIf="!schriftService.edit" class="btn btn-default" (click)="onAddSchrift()">Schriftreihe Hinzufügen</button>
+      <button *ngIf="schriftService.edit" class="btn btn-default" (click)="onEditSchrift()">bearbeiten</button>
   </li>
  </ul>
 
@@ -37,7 +32,7 @@
         <li *ngFor="let schrift of schriftveroeff;let i=index" class="list-group-item-action list-group-item"  >
           <table >
           <tr>
-          <td><b>Titel:</b></td><td> <b>{{schrift.titel}}</b></td>
+          <td style="width:20%"><b>Titel:</b></td><td> <b>{{schrift.titel}}</b></td>
           </tr>
           <tr>
           <td><b>Autor:</b></td><td> {{schrift.autor}}</td>
@@ -59,6 +54,3 @@
       </ul>
 
 </div>
-
-
-{{publikationen[1].autor}}

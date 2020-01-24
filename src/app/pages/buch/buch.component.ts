@@ -22,8 +22,11 @@ export class BuchComponent{
       this.login=this.sharedService.output(),
       this.buecher=this.buchService.output() }
 
-  onAddPublication(){
-    this.buchService.onAddPublication();
+  onAddBuch(){
+    this.buchService.onAddBuch();
    };
 
+  onEditBuch(){
+    this.buchService.onEditBuch();
+   }
 }

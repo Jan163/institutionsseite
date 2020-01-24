@@ -4,6 +4,6 @@ export class Schrift {
         public autor:string,
         public jahr:Date,
         public verlag: string,
-        public Link:string,
+        public link:string,
     ) {}
 }

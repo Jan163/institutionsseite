@@ -21,8 +21,12 @@ export class SchriftComponent {
         this.login=this.sharedService.output(),
         this.schriftveroeff=this.schriftService.output()}
 
-     onAddPublication(){
-    this.schriftService.onAddPublication();
+     onAddSchrift(){
+    this.schriftService.onAddSchrift();
    };
+
+   onEditSchrift(){
+     this.schriftService.onEditSchrift();
+   }
 
 }

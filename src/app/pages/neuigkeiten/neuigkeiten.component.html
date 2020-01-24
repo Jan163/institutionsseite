@@ -15,7 +15,7 @@
         <input type="text" [(ngModel)]="neuigkeitenService.post.img" placeholder="Link zum Bild">
       </li>
       <li class="list-group-item-action list-group-item">
-        <button *ngIf="!neuigkeitenService.edit" class="btn btn-default" (click)="onAddNeuigkeite()">Hinzufügen</button>
+        <button *ngIf="!neuigkeitenService.edit" class="btn btn-default" (click)="onAddNeuigkeit()">Hinzufügen</button>
         <button *ngIf="neuigkeitenService.edit" class="btn btn-default" (click)="onEditNeuigkeit()">bearbeiten</button>
       </li>
     </ul>

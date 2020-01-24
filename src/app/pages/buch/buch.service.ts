@@ -6,6 +6,9 @@ import {Buch} from './buch';
 export class BuchService {
 
   constructor() { }
+  edit:boolean;
+  index:number;
+
   buchver=[
     new Buch("Kreuzhof, R.","  Wirtschaftsethik: Ethikmanagement und Technikbewertung, Einführung in die Theorie und Grundlagen für die Praxis",2018, "1.0","Rainer Hampp Verlag."),
     new Buch("Behrends, T. / Jochims, T. / Nienhüser, W.","Erkenntnis und Fortschritt: Beiträge aus Personalforschung und Managementpraxis" ,2015, "1.0","Rainer Hampp Verlag."),
@@ -14,18 +17,24 @@ export class BuchService {
     ]
 
   post={
-  forschungsprojekt:"",
   autor:"",
-  publikationsTyp: "", 
+  titel: "", 
   jahr: "",
-  volumen:"",
-  publisher:"",
+  ausgabe:"",
+  verlag:"",
   }
 
-   onAddPublication(){
+   onAddBuch(){
      this.buchver.push(
        new Buch(this.post.autor,this.post.titel,this.post.jahr,this.post.ausgabe,this.post.verlag)
      )
+    this.post={
+      autor:"",
+      titel: "", 
+      jahr: "",
+      ausgabe:"",
+      verlag:"",
+      }
    };
   onDelete(index:number){
      this.buchver.splice(index,1)
@@ -34,6 +43,25 @@ export class BuchService {
      return this.buchver;
    }
   onEdit(index:number){
-     this.buchver[index].autor;
+    this.edit=true;
+    this.post.autor=this.buchver[index].autor;
+    this.post.titel=this.buchver[index].titel;
+    this.post.jahr=this.buchver[index].jahr;
+    this.post.ausgabe=this.buchver[index].ausgabe;
+    this.post.verlag=this.buchver[index].verlag;
+    this.index=index;
+   }
+   onEditBuch(){
+    this.buchver[this.index].autor=this.post.autor;
+    this.buchver[this.index].titel=this.post.titel;
+    this.buchver[this.index].jahr=this.post.jahr;
+    this.buchver[this.index].ausgabe=this.post.ausgabe;
+    this.buchver[this.index].verlag=this.post.verlag;
+    this.edit=false;
+    this.post.autor="";
+    this.post.titel="";
+    this.post.jahr="";
+    this.post.ausgabe="";
+    this.post.verlag=""
    }
 }
