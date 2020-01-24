@@ -1,38 +1,58 @@
 <div>
-  <h2 align=center> Aktuelles</h2>
-  <div>
-    <ul *ngIf="login">
-      <li class="list-group-item-action list-group-item">
-        <h3>Neuigkeiten hinzufügen</h3>   
-      </li>
-      <li class="list-group-item-action list-group-item">
-        <input type="text" [(ngModel)]="neuigkeitenService.post.titel" placeholder=Titel >
-      </li>
-      <li class="list-group-item-action list-group-item">
-        <input type="text" [(ngModel)]="neuigkeitenService.post.bericht" placeholder=Bericht >
-      </li>
-      <li class="list-group-item-action list-group-item">
-        <input type="text" [(ngModel)]="neuigkeitenService.post.img" placeholder="Link zum Bild">
-      </li>
-      <li class="list-group-item-action list-group-item">
-        <button *ngIf="!neuigkeitenService.edit" class="btn btn-default" (click)="onAddNeuigkeit()">Hinzufügen</button>
-        <button *ngIf="neuigkeitenService.edit" class="btn btn-default" (click)="onEditNeuigkeit()">bearbeiten</button>
-      </li>
-    </ul>
-  </div>
-    <div *ngFor="let neuigkeit of neuigkeiten;let i=index" >
-          <div class="col-md-12"> 
-            <div class="card mb-4 box-shadow">
-              <div class="card-body">
-                <div class="caption">
-                  <h4>{{neuigkeit.titel}}</h4>
-                  <p>{{neuigkeit.bericht}}</p>
-                  <img src={{neuigkeit.img}} height=120  alignt:center >
-                  <button *ngIf="login" class="btn btn-primary" (click)="neuigkeitenService.onEdit(i)">bearbeiten</button> 
-                  <button *ngIf="login" class="btn btn-default" (click)="neuigkeitenService.onDelete(i)">Löschen</button>
-                </div>
-              </div>
-            </div>
-          </div>
+  <h2 align=center> Neuigkeiten</h2>
+  <div class="col-md-12" *ngIf="login">
+    <div class="card mb-4 box-shadow">
+      <div class="card-body">
+        <table  class="tableberbeiten">
+          <tr>
+            <td>
+              <h3>Neuigkeiten hinzufügen</h3>  
+            </td>
+            <td style="text-align:right">
+              <button *ngIf="!neuigkeitenService.edit" class="btn btn-default" (click)="onAddNeuigkeit()">Hinzufügen</button>
+              <button *ngIf="neuigkeitenService.edit" class="btn btn-default" (click)="onEditNeuigkeit()">Bearbeiten</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="neuigkeitenService.post.titel" placeholder=Titel class="inputhinzu" >
+            </td>
+          </tr>
+          <tr >
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="neuigkeitenService.post.bericht" placeholder=Bericht class="inputhinzu">
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="neuigkeitenService.post.img" placeholder="Link zum Bild" class="inputhinzu">
+            </td>
+          </tr>
+        </table>
       </div>
+      </div>
+  </div>
+  <div *ngFor="let neuigkeit of neuigkeiten;let i=index" >
+    <div class="col-md-12">
+      <div class="card mb-4 box-shadow">
+        <div class="card-body">
+      <table>
+        <tr>
+          <td colspan=2 class="tdd"><h4>{{neuigkeit.titel}}</h4></td>
+        </tr>
+        <tr>
+          <td class="tdtext">{{neuigkeit.bericht}}</td>
+          <td class="tdbild"><img src={{neuigkeit.img}} height=120  ></td>
+        </tr>
+        <tr *ngIf="login"  >
+          <td colspan=2 style="text-align:right">
+            <button  class="btn btn-default" (click)="neuigkeitenService.onEdit(i)">Bearbeiten</button> 
+            <button  class="btn btn-default" (click)="neuigkeitenService.onDelete(i)">Löschen</button>
+          </td>
+        </tr>
+      </table>
+      </div>
+      </div>
+    </div>
+  </div>
 </div>

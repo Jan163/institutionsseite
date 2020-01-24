@@ -1,6 +1,7 @@
 export class Projekt{
   constructor(
-    public img: string,
+    public titel: string,
     public bericht:string,
+    public laufzeit:string
   ){}
 }

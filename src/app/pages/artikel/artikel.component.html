@@ -1,2 +1,66 @@
-<p>ddsa
-  </p>
+<div>
+  <ul *ngIf="login">
+    <li class="list-group-item-action list-group-item">
+      <h3>Neuen Artikel hinzufügen</h3>   
+    </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="artikelService.post.titel" placeholder="Titel" style="width:100%" >
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="artikelService.post.autor" placeholder=Autor style="width:100%">
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="month" [(ngModel)]="artikelService.post.jahr"  maxlength=4 placeholder=Veröffentlichung style="width:100%">
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="artikelService.post.erschien" placeholder="Erschien in der Zeitung" style="width:100%">
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="artikelService.post.hrsg" placeholder=Herausgeber style="width:100%">
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="artikelService.post.seiten" placeholder=Seiten style="width:100%">
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="artikelService.post.verlag" placeholder=Verlag style="width:100%">
+      </li>
+    <li class="list-group-item-action list-group-item">
+      <button *ngIf="!artikelService.edit" class="btn btn-default" (click)="onAddArtikel()">Artikel Hinzufügen</button>
+      <button *ngIf="artikelService.edit" class="btn btn-default" (click)="onEditArtikel()">bearbeiten</button>
+    </li>
+  </ul>
+
+  <h2 align=center>Fachartikel</h2>
+    <ul>
+      <li *ngFor="let artikel of artikele;let i=index" class="list-group-item-action list-group-item"  >
+        <table >
+        <tr>
+        <td style="width:20%"><b>Titel:</b></td><td> <b>{{artikel.titel}}</b></td>
+        </tr>
+        <tr>
+        <td><b>Autor/-en:</b></td><td> {{artikel.autor}}</td>
+        </tr>
+        <tr>
+        <td><b>Veröffentlichung:</b></td><td> {{artikel.jahr}}</td>
+        </tr>
+        <tr>
+        <td><b>Erschienen in:</b> </td> <td>{{artikel.erschien}}</td>
+        </tr>
+        <tr>
+        <td><b>Herausgeber:</b> </td> <td>{{artikel.hrsg}}</td>
+        </tr>
+        <tr>
+        <td><b>Seiten:</b></td><td> {{artikel.seiten}}</td>
+        </tr>
+        <tr>
+        <td><b>Verlag:</b></td><td> {{artikel.verlag}}</td>
+        </tr>
+        <tr>
+        <button *ngIf="login" class="btn btn-primary btn-sm" (click)="artikelService.onEdit(i)">bearbeiten</button> 
+        <button *ngIf="login" class="btn btn-primary btn-sm" (click)="artikelService.onDelete(i)">Löschen</button>
+        </tr>
+        </table>
+    </ul>
+
+
+</div>

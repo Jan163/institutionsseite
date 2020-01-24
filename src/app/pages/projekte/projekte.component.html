@@ -1,5 +1,43 @@
-<h2 align=center>Projekte</h2>
-<div *ngFor="let projekt of projekte;let i=index">
-  <p>{{projekt.img}}</p>
-  <p>{{projekt.bericht}}</p>
+<div>
+  <ul *ngIf="login">
+    <li class="list-group-item-action list-group-item">
+      <h3>Neues Projekt Hinzufügen</h3>   
+    </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="projekteService.post.titel" placeholder="Titel" style="width:100%" >
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="projekteService.post.bericht" placeholder="Bericht" style="width:100%">
+      </li>
+      <li class="list-group-item-action list-group-item">
+        <input type="text" [(ngModel)]="projekteService.post.laufzeit" placeholder="Laufzeit" style="width:100%">
+      </li>
+      
+    <li class="list-group-item-action list-group-item">
+      <button *ngIf="!projekteService.edit" class="btn btn-default" (click)="onAddProjekt()">Artikel Hinzufügen</button>
+      <button *ngIf="projekteService.edit" class="btn btn-default" (click)="onEditProjekt()">bearbeiten</button>
+    </li>
+  </ul>
+
+  <h2 align=center>Projekt </h2>
+    <ul>
+      <li *ngFor="let projekt of projekte;let i=index" class="list-group-item-action list-group-item"  >
+        <table >
+        <tr>
+        <td style="width:20%"><b>Titel:</b></td><td> <b>{{projekt.titel}}</b></td>
+        </tr>
+        <tr>
+        <td><b>Bericht:</b></td><td> {{projekt.bericht}}</td>
+        </tr>
+        <tr>
+        <td><b>Laufzeit:</b></td><td> {{projekt.laufzeit}}</td>
+        </tr>
+        <tr>
+        <button *ngIf="login" class="btn btn-primary btn-sm" (click)="projekteService.onEdit(i)">bearbeiten</button> 
+        <button *ngIf="login" class="btn btn-primary btn-sm" (click)="projekteService.onDelete(i)">Löschen</button>
+        </tr>
+        </table>
+    </ul>
+
+
 </div>

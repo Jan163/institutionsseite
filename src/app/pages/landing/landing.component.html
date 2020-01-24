@@ -1,4 +1,4 @@
-<div class="container">
+<div>
   <h2 align=center>Herzlich Willkommen bei der IHK Flensburg</h2>
   <div *ngFor="let landing of landings;let i=index" >
     <img src={{landing.img}}  alignt:center style="width:100%; margin-bottom:20px"  >
@@ -11,6 +11,39 @@
     <h4 align=center>
       Die Präsidentin der IHK Flensburg
     </h4>
+  </div>
+
+  <div class="col-md-12" *ngIf="login">
+    <div class="card mb-4 box-shadow">
+      <div class="card-body">
+        <table  class="tableberbeiten">
+          <tr>
+            <td>
+              <h3>Neuigkeiten hinzufügen</h3>  
+            </td>
+            <td style="text-align:right">
+              <button *ngIf="!neuigkeitenService.edit" class="btn btn-default" (click)="onAddNeuigkeit()">Hinzufügen</button>
+              <button *ngIf="neuigkeitenService.edit" class="btn btn-default" (click)="onEditNeuigkeit()">Bearbeiten</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="neuigkeitenService.post.titel" placeholder=Titel class="inputhinzu" >
+            </td>
+          </tr>
+          <tr >
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="neuigkeitenService.post.bericht" placeholder=Bericht class="inputhinzu">
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="neuigkeitenService.post.img" placeholder="Link zum Bild" class="inputhinzu">
+            </td>
+          </tr>
+        </table>
+      </div>
+      </div>
   </div>
   <ul *ngIf="login">
     <li class="list-group-item-action list-group-item">
@@ -27,28 +60,30 @@
       <button *ngIf="landingService.edit" class="btn btn-default" (click)="onEditLanding()">bearbeiten</button>
     </li>
   </ul>
-  <ul>
-    <li class="list-group-item-action list-group-item">
-                  <table width=100%>
-        <tr>
-          <td>Name:</td>
-          <th>{{mitglieder[0].name}}</th>
-          <td rowspan=5><img src={{mitglieder[0].img}} height=120 align=right></td>
-        </tr>
-        <tr>
-          <td>Position:</td>
-          <td>{{mitglieder[0].position}}</td>
-        </tr>
-        <tr>
-          <td>Kontakt:</td>
-          <td>{{mitglieder[0].kontakt}}</td>
-        </tr>
-        <tr>
-          <td>E-Mail:</td>
-          <td>{{mitglieder[0].email}}</td>
-        </tr>
-      </table>
-    </li>
-  </ul>
 
+  <div class="col-md-12" >
+    <div class="card mb-4 box-shadow">
+      <div class="card-body">
+        <table width=100%>
+          <tr>
+            <td>Name:</td>
+            <th>{{mitglieder[0].name}}</th>
+            <td rowspan=5><img src={{mitglieder[0].img}} height=120 align=right></td>
+          </tr>
+          <tr>
+            <td>Position:</td>
+            <td>{{mitglieder[0].position}}</td>
+          </tr>
+          <tr>
+            <td>Kontakt:</td>
+            <td>{{mitglieder[0].kontakt}}</td>
+          </tr>
+          <tr>
+            <td>E-Mail:</td>
+            <td>{{mitglieder[0].email}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

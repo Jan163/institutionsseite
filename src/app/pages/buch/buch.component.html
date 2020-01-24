@@ -1,4 +1,4 @@
-<div class="container">
+<div>
   <ul *ngIf="login">
     <li class="list-group-item-action list-group-item">
       <h3>Neues Buch hinzufügen</h3>   
@@ -29,7 +29,7 @@
       <li *ngFor="let buch of buecher;let i=index" class="list-group-item-action list-group-item"  >
         <table >
         <tr>
-        <td><b>Titel:</b></td><td> <b>{{buch.titel}}</b></td>
+        <td style="width:20%"><b>Titel:</b></td><td> <b>{{buch.titel}}</b></td>
         </tr>
         <tr>
         <td><b>Autor/-en:</b></td><td> {{buch.autor}}</td>
