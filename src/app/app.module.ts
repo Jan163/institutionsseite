@@ -28,6 +28,10 @@ import { SchriftService } from './pages/schrift/schrift.service';
 import { LandingService } from './pages/landing/landing.service';
 import { ProjekteService } from './pages/projekte/projekte.service';
 import { NeuigkeitenService } from './pages/neuigkeiten/neuigkeiten.service';
+import { HeftComponent } from './pages/heft/heft.component';
+import { HeftService } from './pages/heft/heft.service';
+import { ArtikelComponent } from './pages/artikel/artikel.component';
+import { ArtikelService } from './pages/artikel/artikel.service';
 
 
 @NgModule({
@@ -43,6 +47,8 @@ import { NeuigkeitenService } from './pages/neuigkeiten/neuigkeiten.service';
     {path:'impressum', component:ImpressumComponent},
     {path:'buch', component:BuchComponent},
     {path:'schrift', component:SchriftComponent},
+    {path:'heft', component:HeftComponent},
+    {path:'artikel', component:ArtikelComponent},
   ],{
     useHash: true
   })
@@ -58,8 +64,10 @@ import { NeuigkeitenService } from './pages/neuigkeiten/neuigkeiten.service';
                   ImpressumComponent,
                   DatenschutzComponent,
                   BuchComponent,
-                  SchriftComponent],
+                  SchriftComponent,
+                  HeftComponent,
+                  ArtikelComponent],
   bootstrap:    [ AppComponent ],
-  providers: [SharedService, MitgliederService, BuchService, SchriftService, LandingService, ProjekteService, NeuigkeitenService]
+  providers: [SharedService, MitgliederService, BuchService, SchriftService, LandingService, ProjekteService, NeuigkeitenService, HeftService, ArtikelService]
 })
 export class AppModule { }

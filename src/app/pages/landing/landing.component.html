@@ -4,14 +4,29 @@
     <img src={{landing.img}}  alignt:center style="width:100%; margin-bottom:20px"  >
     
     <p>{{landing.bericht}}</p>
+    <button *ngIf="login" class="btn btn-primary" (click)="landingService.onEdit(i)">bearbeiten</button> 
+    <button *ngIf="login" class="btn btn-default" (click)="landingService.onDelete(i)">Löschen</button>
   </div>
-
-
   <div>
     <h4 align=center>
       Die Präsidentin der IHK Flensburg
     </h4>
   </div>
+  <ul *ngIf="login">
+    <li class="list-group-item-action list-group-item">
+      <h3>Informationen anpassen?</h3>   
+    </li>
+    <li class="list-group-item-action list-group-item">
+      <input type="textarea" [(ngModel)]="landingService.post.bericht" placeholder="neue Information" style="width:100%">
+    </li>
+    <li class="list-group-item-action list-group-item">
+      <input type="text" [(ngModel)]="landingService.post.img" placeholder=Bild >
+    </li>
+    <li class="list-group-item-action list-group-item">
+      <button *ngIf="!landingService.edit" class="btn btn-default" (click)="onAddLanding()">Hinzufügen</button>
+      <button *ngIf="landingService.edit" class="btn btn-default" (click)="onEditLanding()">bearbeiten</button>
+    </li>
+  </ul>
   <ul>
     <li class="list-group-item-action list-group-item">
                   <table width=100%>

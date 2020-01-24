@@ -32,7 +32,7 @@ export class LandingComponent  {
     this.landingService.onAddLanding();
   }
 
-  onEndLanding(){
+  onEditLanding(){
     this.landingService.onEditLanding();
   }
 }

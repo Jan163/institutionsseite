@@ -19,7 +19,7 @@ export class LandingService {
     bericht:""
   }
 
-  onAddLading(){
+  onAddLanding(){
     this.landings.push(new Landing(this.post.img,this.post.bericht))
     this.post={
       img:"",
@@ -41,7 +41,7 @@ export class LandingService {
     this.index=index;
   }
 
-  onEditProjekt(){
+  onEditLanding(){
     this.landings[this.index].img=this.post.img;
     this.landings[this.index].bericht=this.post.bericht;
     this.edit=false;
