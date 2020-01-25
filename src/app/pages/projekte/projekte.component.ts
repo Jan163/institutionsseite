@@ -6,7 +6,8 @@ import {ProjekteService} from './projekte.service';
 
 @Component({
   selector: 'my-projekte',
-templateUrl: './projekte.component.html'
+templateUrl: './projekte.component.html',
+  styleUrls: ['./projekte.component.css']
 })
 
 export class ProjekteComponent  

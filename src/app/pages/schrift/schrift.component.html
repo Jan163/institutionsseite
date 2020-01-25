@@ -1,56 +1,84 @@
 
 
 <div>
-    
- <ul *ngIf="login">
-  <li class="list-group-item-action list-group-item">
-    <h3>Neue Schriftreihe hinzufügen</h3>   
-  </li>
-    <li class="list-group-item-action list-group-item">
-      <input type="text" [(ngModel)]="schriftService.post.titel" placeholder=Titel >
-    </li>
-    <li class="list-group-item-action list-group-item">
-      <input type="text" [(ngModel)]="schriftService.post.autor" placeholder=Autor >
-    </li>
-    <li class="list-group-item-action list-group-item">
-      <input type="month" [(ngModel)]="schriftService.post.jahr"  maxlength=4 placeholder=Veröffentlichung >
-    </li>
-    <li class="list-group-item-action list-group-item">
-      <input type="text" [(ngModel)]="schriftService.post.verlag" placeholder=Verlag >
-    </li>
-    <li class="list-group-item-action list-group-item">
-      <input type="text" [(ngModel)]="schriftService.post.link" placeholder="Link zur Schriftreihe" >
-    </li>
-  <li class="list-group-item-action list-group-item">
-    <button *ngIf="!schriftService.edit" class="btn btn-default" (click)="onAddSchrift()">Schriftreihe Hinzufügen</button>
-      <button *ngIf="schriftService.edit" class="btn btn-default" (click)="onEditSchrift()">bearbeiten</button>
-  </li>
- </ul>
-
- <h2 align=center>Schriftreihe</h2>
-      <ul>
-        <li *ngFor="let schrift of schriftveroeff;let i=index" class="list-group-item-action list-group-item"  >
-          <table >
+ <div class="col-md-12" *ngIf="login">
+    <div class="card mb-4 box-shadow">
+      <div class="card-body">
+        <table  class="tableberbeiten">
           <tr>
-          <td style="width:20%"><b>Titel:</b></td><td> <b>{{schrift.titel}}</b></td>
+            <td>
+              <h3>Neue Schriftreihe hinzufügen</h3>  
+            </td>
+            <td style="text-align:right">
+              <button *ngIf="!schriftService.edit" class="btn btn-default" (click)="onAddSchrift()">Hinzufügen</button>
+              <button *ngIf="schriftService.edit" class="btn btn-default" (click)="onEditSchrift()">Bearbeiten</button>
+            </td>
           </tr>
           <tr>
-          <td><b>Autor:</b></td><td> {{schrift.autor}}</td>
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="schriftService.post.titel" placeholder="Titel" style="width:100%" >
+            </td>
+          </tr>
+          <tr >
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="schriftService.post.autor" placeholder=Autor style="width:100%">
+            </td>
           </tr>
           <tr>
-          <td><b>Veröffentlichung:</b></td><td> {{schrift.jahr}}</td>
+            <td colspan=2 class="tdhinzu">
+              <input type="month" [(ngModel)]="schriftService.post.jahr"  maxlength=4 placeholder=Veröffentlichung style="width:100%">
+            </td>
           </tr>
           <tr>
-          <td><b>Verlag:</b> </td> <td>{{schrift.verlag}}</td>
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="schriftService.post.verlag" placeholder=Ausgabe style="width:100%">
+            </td>
           </tr>
           <tr>
-          <td><b>Link:</b></td><td> {{schrift.link}}</td>
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="schriftService.post.link" placeholder=Publisher style="width:100%">
+            </td>
           </tr>
-          <tr>
-          <button *ngIf="login" class="btn btn-primary btn-sm" (click)="schriftService.onEdit(i)">Editieren</button> 
-          <button *ngIf="login" class="btn btn-primary btn-sm" (click)="schriftService.onDelete(i)">Löschen</button>
-          </tr>
+        </table>
+      </div>
+      </div>
+  </div>
+  <h2 align=center>Schriftreihe</h2>
+  <div *ngFor="let schrift of schriftveroeff;let i=index" >
+    <div class="col-md-12">
+      <div class="card mb-4 box-shadow">
+        <div class="card-body">
+          <table>
+            <tr>
+              <th colspan=2 class="tdd">
+                {{schrift.titel}}
+              </th>
+            </tr>
+            <tr>
+              <th class="thtext">Autor/-en:</th>
+              <td class="tdtext">{{schrift.autor}}</td>
+            </tr>
+            <tr>
+              <th class="thtext">Veröffentlichung:</th>
+              <td class="tdtext">{{schrift.jahr}}</td>
+            </tr>
+            <tr>
+              <th class="thtext">Ausgabe:</th>
+              <td class="tdtext">{{schrift.verlag}}</td>
+            </tr>
+            <tr>
+              <th class="thtext">Verlag:</th>
+              <td class="tdtext">{{schrift.link}}</td>
+            </tr>
+            <tr *ngIf="login"  >
+              <td colspan=2 style="text-align:right">
+                <button *ngIf="login" class="btn btn-default" (click)="schriftService.onEdit(i)">bearbeiten</button> 
+                <button *ngIf="login" class="btn btn-default" (click)="schriftService.onDelete(i)">Löschen</button>
+              </td>
+            </tr>
           </table>
-      </ul>
-
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

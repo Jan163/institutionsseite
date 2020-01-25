@@ -1,53 +1,83 @@
 <div>
-  <ul *ngIf="login">
-    <li class="list-group-item-action list-group-item">
-      <h3>Neues Heft hinzufügen</h3>   
-    </li>
-      <li class="list-group-item-action list-group-item">
-        <input type="text" [(ngModel)]="heftService.post.titel" placeholder="Titel" style="width:100%" >
-      </li>
-      <li class="list-group-item-action list-group-item">
-        <input type="text" [(ngModel)]="heftService.post.autor" placeholder=Autor style="width:100%">
-      </li>
-      <li class="list-group-item-action list-group-item">
-        <input type="month" [(ngModel)]="heftService.post.jahr"  maxlength=4 placeholder=Veröffentlichung style="width:100%">
-      </li>
-      <li class="list-group-item-action list-group-item">
-        <input type="text" [(ngModel)]="heftService.post.ausgabe" placeholder=Ausgabe style="width:100%">
-      </li>
-      <li class="list-group-item-action list-group-item">
-        <input type="text" [(ngModel)]="heftService.post.link" placeholder=Link style="width:100%">
-      </li>
-    <li class="list-group-item-action list-group-item">
-      <button *ngIf="!heftService.edit" class="btn btn-default" (click)="onAddHeft()">Heft Hinzufügen</button>
-      <button *ngIf="heftService.edit" class="btn btn-default" (click)="onEditHeft()">bearbeiten</button>
-    </li>
-  </ul>
-
-  <h2 align=center>Flensburger Hefte</h2>
-    <ul>
-      <li *ngFor="let heft of hefte;let i=index" class="list-group-item-action list-group-item"  >
-        <table >
-        <tr>
-        <td style="width:20%"><b>Titel:</b></td><td> <b>{{heft.titel}}</b></td>
-        </tr>
-        <tr>
-        <td><b>Autor/-en:</b></td><td> {{heft.autor}}</td>
-        </tr>
-        <tr>
-        <td><b>Veröffentlichung:</b></td><td> {{heft.jahr}}</td>
-        </tr>
-        <tr>
-        <td><b>Ausgabe:</b> </td> <td>{{heft.ausgabe}}</td>
-        </tr>
-        <tr>
-        <td><b>Link:</b></td><td> {{heft.link}}</td>
-        </tr>
-        <tr>
-        <button *ngIf="login" class="btn btn-primary btn-sm" (click)="heftService.onEdit(i)">bearbeiten</button> 
-        <button *ngIf="login" class="btn btn-primary btn-sm" (click)="heftService.onDelete(i)">Löschen</button>
-        </tr>
+  <div class="col-md-12" *ngIf="login">
+    <div class="card mb-4 box-shadow">
+      <div class="card-body">
+        <table  class="tableberbeiten">
+          <tr>
+            <td>
+              <h3>Neues Heft hinzufügen</h3>  
+            </td>
+            <td style="text-align:right">
+              <button *ngIf="!heftService.edit" class="btn btn-default" (click)="onAddHeft()">Hinzufügen</button>
+              <button *ngIf="heftService.edit" class="btn btn-default" (click)="onEditHeft()">Bearbeiten</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="heftService.post.titel" placeholder="Titel" style="width:100%" >
+            </td>
+          </tr>
+          <tr >
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="heftService.post.autor" placeholder=Autor style="width:100%">
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2 class="tdhinzu">
+              <input type="month" [(ngModel)]="heftService.post.jahr"  maxlength=4 placeholder=Veröffentlichung style="width:100%">
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="heftService.post.ausgabe" placeholder=Ausgabe style="width:100%">
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2 class="tdhinzu">
+              <input type="text" [(ngModel)]="heftService.post.link" placeholder="Link zur Ausgabe" style="width:100%">
+            </td>
+          </tr>
         </table>
-    </ul>
+      </div>
+      </div>
+  </div>
+  <h2 align=center>Flensburger Hefte</h2>
+  <div *ngFor="let heft of hefte;let i=index" >
+    <div class="col-md-12">
+      <div class="card mb-4 box-shadow">
+        <div class="card-body">
+          <table>
+            <tr>
+              <th colspan=2 class="tdd">
+                {{heft.titel}}
+              </th>
+            </tr>
+            <tr>
+              <th class="thtext">Autor/-en:</th>
+              <td class="tdtext">{{heft.autor}}</td>
+            </tr>
+            <tr>
+              <th class="thtext">Veröffentlichung:</th>
+              <td class="tdtext">{{heft.jahr}}</td>
+            </tr>
+            <tr>
+              <th class="thtext">Ausgabe:</th>
+              <td class="tdtext">{{heft.ausgabe}}</td>
+            </tr>
+            <tr>
+              <th class="thtext">Link:</th>
+              <td class="tdtext">{{heft.link}}</td>
+            </tr>
+            <tr *ngIf="login"  >
+              <td colspan=2 style="text-align:right">
+                <button *ngIf="login" class="btn btn-default" (click)="buchService.onEdit(i)">bearbeiten</button> 
+                <button *ngIf="login" class="btn btn-default" (click)="buchService.onDelete(i)">Löschen</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
