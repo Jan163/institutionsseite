@@ -7,7 +7,8 @@ import{MitgliederService} from './mitglieder.service';
 
 @Component({
   selector: 'my-institutsmitglieder',
-  templateUrl: './institutsmitglieder.component.html'
+  templateUrl: './institutsmitglieder.component.html',
+  styleUrls: ['./institutsmitglieder.component.css']
 
 })
 export class InstitutsmitgliederComponent  {
