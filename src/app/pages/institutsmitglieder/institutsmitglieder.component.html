@@ -45,20 +45,18 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row">
-        <div *ngFor="let mitglied of mitglieder;let i=index" >
-            <div class="col-md-4" > 
-              <div class="card mb-4 shadow-sm">
-                <img src={{mitglied.img}} class="bd-placeholder-img card-img-top">
-                <div class="card-body">
-                  <p>{{mitglied.name}}</p>
-                  <p>{{mitglied.position}}</p>
-                  <p>{{mitglied.kontakt}}</p>
-                  <p>{{mitglied.email}}</p>
-                  <button *ngIf="login" class="btn btn-primary" (click)="mitgliederService.onEdit(i)">bearbeiten</button> 
-                  <button *ngIf="login" class="btn btn-default" (click)="mitgliederService.onDelete(i)">Löschen</button>
-                </div>
+        <div *ngFor="let mitglied of mitglieder;let i=index" class="card_my" >
+            <div class="card" style="width: 20rem;">
+              <img src="{{mitglied.img}}" class="card-img-top" alt="bild">
+              <div class="card-body">
+                <h5 class="card-title">{{mitglied.name}}e</h5>
+                <p class="card-text">{{mitglied.position}}</p>
+                <p class="card-text">{{mitglied.kontakt}}</p>
+                <p class="card-text">{{mitglied.email}}</p>
+                <button *ngIf="login" class="btn btn-primary" (click)="mitgliederService.onEdit(i)">bearbeiten</button> 
+                <button *ngIf="login" class="btn btn-default" (click)="mitgliederService.onDelete(i)">Löschen</button>
               </div>
-            </div>
+          </div>
         </div>
       </div>
     </div>
