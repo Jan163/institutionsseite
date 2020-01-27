@@ -32,6 +32,10 @@ import { HeftComponent } from './pages/heft/heft.component';
 import { HeftService } from './pages/heft/heft.service';
 import { ArtikelComponent } from './pages/artikel/artikel.component';
 import { ArtikelService } from './pages/artikel/artikel.service';
+import { NavigationdropdownService } from './elements/navigationdropdown.service';
+
+
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 @NgModule({
@@ -49,9 +53,10 @@ import { ArtikelService } from './pages/artikel/artikel.service';
     {path:'schrift', component:SchriftComponent},
     {path:'heft', component:HeftComponent},
     {path:'artikel', component:ArtikelComponent},
-  ],{
+  ],
+  {
     useHash: true
-  })
+  }),BsDropdownModule.forRoot()
   ],
   declarations: [ AppComponent, 
                   LandingComponent,
@@ -68,6 +73,6 @@ import { ArtikelService } from './pages/artikel/artikel.service';
                   HeftComponent,
                   ArtikelComponent],
   bootstrap:    [ AppComponent ],
-  providers: [SharedService, MitgliederService, BuchService, SchriftService, LandingService, ProjekteService, NeuigkeitenService, HeftService, ArtikelService]
+  providers: [SharedService, MitgliederService, BuchService, SchriftService, LandingService, ProjekteService, NeuigkeitenService, HeftService, ArtikelService, NavigationdropdownService]
 })
 export class AppModule { }
