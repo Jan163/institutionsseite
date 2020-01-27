@@ -10,5 +10,11 @@ templateUrl: './navigation.component.html',
 export class NavigationComponent {
   name: "IHK Flensburg";
 
+  dropDown=false;
+
+
+  onClickOption(clickOption:string){
+    this.dropDown=false;
+  }
 
 }

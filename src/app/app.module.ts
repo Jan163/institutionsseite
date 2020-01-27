@@ -33,9 +33,11 @@ import { HeftService } from './pages/heft/heft.service';
 import { ArtikelComponent } from './pages/artikel/artikel.component';
 import { ArtikelService } from './pages/artikel/artikel.service';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ,
+  imports:      [ BrowserModule, FormsModule ,BsDropdownModule.forRoot(),
   RouterModule.forRoot([
     {path:'', component:LandingComponent},
     {path:'login', component:LoginComponent},
