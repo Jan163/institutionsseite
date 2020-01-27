@@ -50,11 +50,11 @@ export class NewsService {
   }
 
    onEditNews(){
-    this.newse[this.index].autor=this.post.titel;
-    this.newse[this.index].jahr=this.post.bericht;
-    this.newse[this.index].ausgabe=this.post.datum;
-    this.newse[this.index].titel=this.post.strasse;
-    this.newse[this.index].link=this.post.ort;
+    this.newse[this.index].titel=this.post.titel;
+    this.newse[this.index].bericht=this.post.bericht;
+    this.newse[this.index].datum=this.post.datum;
+    this.newse[this.index].strasse=this.post.strasse;
+    this.newse[this.index].ort=this.post.ort;
     this.edit=false;
     this.post.titel="";
     this.post.bericht="";

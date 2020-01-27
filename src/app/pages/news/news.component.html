@@ -8,33 +8,33 @@
               <h3>Neue News hinzufügen</h3>  
             </td>
             <td style="text-align:right">
-              <button *ngIf="!newsServicde.edit" class="btn btn-default" (click)="onAddNews()">Hinzufügen</button>
-              <button *ngIf="newsServicde.edit" class="btn btn-default" (click)="onEditNews()">Bearbeiten</button>
+              <button *ngIf="!newsService.edit" class="btn btn-default" (click)="onAddNews()">Hinzufügen</button>
+              <button *ngIf="newsService.edit" class="btn btn-default" (click)="onEditNews()">Bearbeiten</button>
             </td>
           </tr>
           <tr>
             <td colspan=2 class="tdhinzu">
-              <input type="text" [(ngModel)]="newsServicde.post.titel" placeholder="Titel" style="width:100%" >
+              <input type="text" [(ngModel)]="newsService.post.titel" placeholder="Titel" style="width:100%" >
             </td>
           </tr>
           <tr >
             <td colspan=2 class="tdhinzu">
-              <input type="text" [(ngModel)]="newsServicde.post.bericht" placeholder="Bericht" style="width:100%">
+              <input type="text" [(ngModel)]="newsService.post.bericht" placeholder="Bericht" style="width:100%">
             </td>
           </tr>
           <tr>
             <td colspan=2 class="tdhinzu">
-              <input type="month" [(ngModel)]="newsServicde.post.datum"  maxlength=10 placeholder="Datum" style="width:100%">
+              <input type="month" [(ngModel)]="newsService.post.datum"  maxlength=10 placeholder="Datum" style="width:100%">
             </td>
           </tr>
           <tr>
             <td colspan=2 class="tdhinzu">
-              <input type="text" [(ngModel)]="newsServicde.post.strasse" placeholder="Adresse" style="width:100%">
+              <input type="text" [(ngModel)]="newsService.post.strasse" placeholder="Adresse" style="width:100%">
             </td>
           </tr>
           <tr>
             <td colspan=2 class="tdhinzu">
-              <input type="text" [(ngModel)]="newsServicde.post.ort" placeholder="Ort der Veranstaltung" style="width:100%">
+              <input type="text" [(ngModel)]="newsService.post.ort" placeholder="Ort der Veranstaltung" style="width:100%">
             </td>
           </tr>
         </table>
@@ -70,7 +70,7 @@
             </tr>
             <tr *ngIf="login"  >
               <td colspan=2 style="text-align:right">
-                <button *ngIf="login" class="btn btn-default" (click)="newsService.onEdit(i)">bearbeiten</button> 
+                <button *ngIf="login" class="btn btn-default" (click)="newsService.onEdit(i)">Bearbeiten</button> 
                 <button *ngIf="login" class="btn btn-default" (click)="newsService.onDelete(i)">Löschen</button>
               </td>
             </tr>
