@@ -70,8 +70,8 @@
             </tr>
             <tr *ngIf="login"  >
               <td colspan=2 style="text-align:right">
-                <button *ngIf="login" class="btn btn-default" (click)="buchService.onEdit(i)">bearbeiten</button> 
-                <button *ngIf="login" class="btn btn-default" (click)="buchService.onDelete(i)">Löschen</button>
+                <button *ngIf="login" class="btn btn-default" (click)="heftService.onEdit(i)">Bearbeiten</button> 
+                <button *ngIf="login" class="btn btn-default" (click)="heftService.onDelete(i)">Löschen</button>
               </td>
             </tr>
           </table>
