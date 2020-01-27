@@ -53,7 +53,7 @@
               <p class="card-text">{{mitglied.position}}</p>
               <p class="card-text">{{mitglied.kontakt}}</p>
               <p class="card-text">{{mitglied.email}}</p>
-              <button *ngIf="login" class="btn btn-primary" (click)="mitgliederService.onEdit(i)">bearbeiten</button> 
+              <button *ngIf="login" class="btn btn-default" (click)="mitgliederService.onEdit(i)">Bearbeiten</button> 
               <button *ngIf="login" class="btn btn-default" (click)="mitgliederService.onDelete(i)">Löschen</button>
             </div>
           </div>
